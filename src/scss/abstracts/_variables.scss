@@ -1,0 +1,71 @@
+@font-face {
+  font-family: BeVietnam-Pro;
+  src: url(../fonts/BeVietnamPro-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: BeVietnam-Pro;
+  src: url(../fonts/BeVietnamPro-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: BeVietnam-Pro;
+  src: url(../fonts/BeVietnamPro-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: BeVietnam-Pro;
+  src: url(../fonts/BeVietnamPro-Bold.ttf);
+  font-weight: 700;
+}
+// screen sizes for mobile
+$sm-size: 480px;
+// screen sizes for tblet
+$tablet-size: 1200px;
+// font variables
+$primary-font: BeVietnam-Pro;
+$primary-font-size: 14px;
+$secondary-font-size: 24px;
+$fiver-font-size: 13px;
+$tertiary-font-size: 12px;
+$fith-font-size: 8px;
+$background-color: radial-gradient(
+  50% 50% at 50% 50%,
+  #424657 0%,
+  #0c0f20 100%
+);
+$input-bg-color: radial-gradient(
+  90.16% 143.26% at 15.32% 20.99%,
+  rgba(235, 236, 240, 0.2) 0%,
+  rgba(235, 236, 240, 0.0447917) 77.08%,
+  rgba(235, 236, 240, 0) 100%
+);
+$input-border-radius: 8px;
+$placeholder-color: rgb(253 253 253 / 50%);
+
+$primary-line-height: 10px;
+
+// colors
+$title-color: #ffffff;
+$label-color: #fdfdfd;
+$primary-color: #a1eafb;
+$secondary-color: #ffcef3;
+$danger-color: #bc3d9d;
+$dark-color: #0C0F20;
+// font weight
+$primary-label-fw: 600;
+
+//progress bar
+$progress-height: 2px;
+$progress-border-radius: 10px;
+$progress-box-shadow: 0px 0px 18.9113px #1bb5d9, 0px 0px 73.2115px #1bb5d9,
+  inset 0px 0px 7.32115px #1bb5d9;
+$progress-filter: blur(1.3508px);
+$progress-secondary-color: radial-gradient(
+  90.16% 143.26% at 15.32% 20.99%,
+  rgba(235, 236, 240, 0.2) 0%,
+  rgba(235, 236, 240, 0.0447917) 77.08%,
+  rgba(235, 236, 240, 0) 100%
+);
+$progress-label-opacity-secondary: 50%;
+$input-border: 1px solid rgba(255, 255, 255, 0.15);
