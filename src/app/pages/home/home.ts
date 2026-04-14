@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Provider } from '../../../models';
-import { ProvidersList } from '../providers-list/providers-list';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-home',
-  imports: [ProvidersList],
+  imports: [RouterModule, CommonModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
