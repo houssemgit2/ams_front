@@ -1,0 +1,91 @@
+
+
+/* You can add global styles to this file, and also import other style files */
+@import "./scss/abstracts/variables";
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $primary-font !important;
+  height: 100%;
+  font-size: $primary-font-size;
+  background-color:transparent;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $title-color;
+}
+
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.pr-0 {
+  padding-right: 0 !important;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.btn {
+  padding-left: 0;
+}
+
+.container-fluid {
+  padding: 0 80px;
+  @media (max-width: $tablet-size) {
+    padding: 0 40px;
+  }
+  @media (max-width: $sm-size) {
+    padding: 0 20px;
+  }
+}
+
+.primary-btn {
+  background: #a1eafb !important;
+  height: 40px;
+  width: 100%;
+  color: #0c0f20 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  box-shadow: none;
+  &:hover {
+    background: #1bb5d9 !important;
+    color: #fdfdfd !important;
+    font-weight: 600;
+    border: 2px solid #a1eafb;
+  }
+}
+
+.secondary-btn {
+  background: #ffcef3 !important;
+  height: 40px;
+  width: 100%;
+  box-shadow: none;
+  color: #0c0f20 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  &:hover {
+    background: #bc3d9d !important;
+    border: 2px solid #ffcef3;
+    color: #fdfdfd !important;
+    font-weight: 600;
+  }
+}
+
+textarea {
+  resize: none;
+  overflow: hidden;
+}
