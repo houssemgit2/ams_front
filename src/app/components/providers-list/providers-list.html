@@ -1,0 +1,31 @@
+<div class="table-responsive">
+ <table class="table table-striped table-hover table-bordered">
+      
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Adresse</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (provider of listProviders|async; track provider.id) {
+          <tr>
+            <td>{{ provider.id }}</td>
+            <td>{{ provider.name }}</td>
+            <td>{{ provider.email }}</td>
+            <td>{{ provider.address }}</td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" class="text-center text-muted">
+             
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+</div>
