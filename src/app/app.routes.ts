@@ -21,6 +21,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/users/users').then((m) => m.Users),
       },
       {
+        path: 'add-provider',
+        loadComponent: () => import('./pages/add-provider/add-provider').then((m) => m.AddProvider),
+      },
+      {
         path: '',
         redirectTo: 'providers',
         pathMatch: 'full',

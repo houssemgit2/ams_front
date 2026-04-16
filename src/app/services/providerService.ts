@@ -10,4 +10,8 @@ export class ProviderService {
   getProviders() {
     return this.htpp.get('http://localhost:8080/providers/');
   }
+
+  saveProvider(provider: any) {
+    return this.htpp.post('http://localhost:8080/providers/', provider);
+  }
 }
