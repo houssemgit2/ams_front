@@ -1,0 +1,45 @@
+<div class="modal fade show d-block modal-overlay">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Provider</h5>
+        <button class="btn-close" (click)="onClose()"></button>
+      </div>
+
+      <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label>Name</label>
+            <input class="form-control" name="name" [(ngModel)]="formProvider!.name" required />
+          </div>
+
+          <div class="mb-3">
+            <label>Email</label>
+            <input
+              class="form-control"
+              name="email"
+              [(ngModel)]="formProvider!.email"
+              required
+              email
+            />
+          </div>
+
+          <div class="mb-3">
+            <label>Address</label>
+            <input
+              class="form-control"
+              name="address"
+              [(ngModel)]="formProvider!.address"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" (click)="onClose()">Cancel</button>
+          <button class="btn btn-primary" type="submit">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

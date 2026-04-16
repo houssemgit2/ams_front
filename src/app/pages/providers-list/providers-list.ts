@@ -1,24 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ProviderService } from '../../services/providerService';
 import { CommonModule } from '@angular/common';
 import { Provider } from '../../../models';
-import { Router } from '@angular/router';
+import { ProviderModal } from '../../components/provider-modal/provider-modal';
 
 @Component({
   standalone: true,
   selector: 'app-providers-list',
-  imports: [CommonModule],
+  imports: [CommonModule, ProviderModal],
   templateUrl: './providers-list.html',
   styleUrls: ['./providers-list.scss'],
 })
 export class ProvidersList implements OnInit {
   listProviders = new BehaviorSubject<Provider[]>([]);
+  selectedProvider = signal<Provider | null>(null);
 
-  constructor(
-    private providerService: ProviderService,
-    private router: Router,
-  ) {}
+  constructor(private providerService: ProviderService) {}
 
   ngOnInit(): void {
     this.loadProviders();
@@ -29,9 +27,7 @@ export class ProvidersList implements OnInit {
       next: (data: Provider[]) => {
         this.listProviders.next(data);
       },
-      error: (err) => {
-        console.log('Erreur de récupération des providers', err);
-      },
+      error: (err) => console.error(err),
     });
   }
 
@@ -39,14 +35,30 @@ export class ProvidersList implements OnInit {
     if (confirm('Are you sure you want to delete this provider?')) {
       this.providerService.deleteProvider(id).subscribe({
         next: () => {
-          this.loadProviders();
+          const updated = this.listProviders.value.filter((p) => p.id !== id);
+          this.listProviders.next(updated);
         },
-        error: (err) => console.log(err),
+        error: (err) => console.error(err),
       });
     }
   }
 
-  onEdit(id: number) {
-    this.router.navigate(['/home/providers/edit', id]);
+  openModal(provider: Provider) {
+    this.selectedProvider.set({ ...provider });
+  }
+
+  closeModal() {
+    this.selectedProvider.set(null);
+  }
+
+  handleUpdate(updated: Provider) {
+    this.providerService.updateProvider(updated).subscribe({
+      next: (res) => {
+        const list = this.listProviders.value.map((p) => (p.id === res.id ? res : p));
+        this.listProviders.next(list);
+        this.closeModal();
+      },
+      error: (err) => console.error(err),
+    });
   }
 }

@@ -27,7 +27,7 @@ export class ProviderService {
     return this.http.get<Provider>(`${this.apiUrl}/${id}`);
   }
 
-  updateProvider(id: number, provider: Provider): Observable<Provider> {
-    return this.http.put<Provider>(`${this.apiUrl}/${id}`, provider);
+  updateProvider(provider: Provider): Observable<Provider> {
+    return this.http.put<Provider>(`${this.apiUrl}/`, provider);
   }
 }
