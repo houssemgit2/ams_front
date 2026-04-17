@@ -1,16 +1,16 @@
 
 
 /* You can add global styles to this file, and also import other style files */
-@import "./scss/abstracts/variables";
+@use "./scss/abstracts/variables";
 
 html {
   height: 100%;
 }
 
 body {
-  font-family: $primary-font !important;
+  font-family: variables.$primary-font !important;
   height: 100%;
-  font-size: $primary-font-size;
+  font-size: variables.$primary-font-size;
   background-color:transparent;
 }
 
@@ -24,7 +24,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: $title-color;
+  color: variables.$title-color;
 }
 
 .pl-0 {
@@ -42,18 +42,18 @@ h4 {
 
 .container-fluid {
   padding: 0 80px;
-  @media (max-width: $tablet-size) {
+  @media (max-width: variables.$title-color) {
     padding: 0 40px;
   }
-  @media (max-width: $sm-size) {
+  @media (max-width: variables.$title-color) {
     padding: 0 20px;
   }
 }
 
 .primary-btn {
-  background: $primary-color !important;
+  background: variables.$primary-color !important;
   height: 40px;
-  color: $dark-color !important;
+  color: variables.$primary-color !important;
   font-weight: 600 !important;
   font-size: 14px !important;
   box-shadow: none;
@@ -66,7 +66,7 @@ h4 {
   background: #ffcef3 !important;
   height: 40px;
   box-shadow: none;
-  color: $dark-color !important;
+  color: variables.$primary-color !important;
   font-weight: 600 !important;
   font-size: 14px !important;
   &:hover {
