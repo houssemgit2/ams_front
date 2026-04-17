@@ -1,22 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Provider } from '../../models';
 import { Observable } from 'rxjs';
+
+import { Provider } from '../../models';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProviderService {
-  private apiUrl = 'http://localhost:8080/providers';
+  private apiUrl = `${environment.urlApi}/providers/`;
 
   constructor(private http: HttpClient) {}
 
   getProviders(): Observable<Provider[]> {
-    return this.http.get<Provider[]>(`${this.apiUrl}/`);
+    console.log('=>', this.apiUrl);
+
+    return this.http.get<Provider[]>(this.apiUrl);
   }
 
   saveProvider(provider: Provider): Observable<Provider> {
-    return this.http.post<Provider>(`${this.apiUrl}/`, provider);
+    return this.http.post<Provider>(this.apiUrl, provider);
   }
 
   deleteProvider(id: number): Observable<void> {
@@ -28,6 +32,6 @@ export class ProviderService {
   }
 
   updateProvider(provider: Provider): Observable<Provider> {
-    return this.http.put<Provider>(`${this.apiUrl}/`, provider);
+    return this.http.put<Provider>(`${this.apiUrl}/${provider.id}`, provider);
   }
 }
