@@ -10,5 +10,5 @@ import { Authentication } from '../../services/authentication';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
-  private constructor(public authenticationService: Authentication) {}
+  constructor(public authenticationService: Authentication) {}
 }

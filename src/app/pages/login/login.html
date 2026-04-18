@@ -1,1 +1,70 @@
-<p>login works!</p>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+      <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary">Authentification</h1>
+        <p class="text-muted mb-0">Connectez-vous à votre espace</p>
+      </div>
+
+      <div class="card border-0 shadow rounded-4">
+        <div class="card-body p-4 p-md-5">
+          <form #loginForm="ngForm" (ngSubmit)="checkLogin()">
+            @if (invalidLogin) {
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ errorMessage }}
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
+            }
+
+            <div class="mb-3">
+              <label for="username" class="form-label fw-semibold">Username</label>
+
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  [(ngModel)]="username"
+                  placeholder="Enter username"
+                  required
+                />
+              </div>
+            </div>
+            <div class="mb-4">
+              <label for="password" class="form-label fw-semibold">Password</label>
+
+              <div class="input-group">
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  [(ngModel)]="password"
+                  placeholder="Enter password"
+                  required
+                />
+
+                <button type="button" class="btn btn-outline-secondary" (click)="togglePassword()">
+                  <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success btn-lg">
+                <i class="bi bi-box-arrow-in-right me-2"></i>
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
