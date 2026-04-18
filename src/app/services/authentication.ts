@@ -8,19 +8,22 @@ import { map } from 'rxjs';
 export class Authentication {
   constructor(private httpClient: HttpClient) {}
 
-  authenticate(username: any, password: any) {
-    let userData: any = this.httpClient
-      .post(environment.authUrl + 'signin', { username: username, password: password })
+  authenticate(username: string, password: string) {
+    return this.httpClient
+      .post<any>(`${environment.authUrl}signin`, {
+        username,
+        password,
+      })
       .pipe(
-        map((data: any) => {
+        map((data) => {
           sessionStorage.setItem('token', data.accessToken);
           sessionStorage.setItem('email', data.email);
           sessionStorage.setItem('username', data.username);
-          sessionStorage.setItem('roles', data.roles);
-          userData = data;
+          sessionStorage.setItem('roles', JSON.stringify(data.roles));
+
+          return data;
         }),
       );
-    return userData;
   }
 
   /*
