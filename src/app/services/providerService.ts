@@ -19,7 +19,7 @@ export class ProviderService {
     return this.http.get<Provider[]>(this.apiUrl);
   }
 
-  saveProvider(provider: Provider): Observable<Provider> {
+  saveProvider(provider: any): Observable<Provider> {
     return this.http.post<Provider>(this.apiUrl, provider);
   }
 

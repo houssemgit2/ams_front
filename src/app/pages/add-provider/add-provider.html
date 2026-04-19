@@ -1,22 +1,12 @@
 <div class="container mt-5 d-flex justify-content-center">
-  
-  <div style="width: 400px;">
-    
+  <div style="width: 400px">
     <div class="card shadow p-4">
       <h3 class="mb-4 text-center">Add Provider</h3>
 
       <form #providerForm="ngForm" (ngSubmit)="onSubmit(providerForm)">
-
         <div class="mb-3">
           <label class="form-label">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            name="name"
-            ngModel
-            required
-            #name="ngModel"
-          />
+          <input type="text" class="form-control" name="name" ngModel required #name="ngModel" />
           @if (name.invalid && name.touched) {
             <div class="text-danger">Name is required</div>
           }
@@ -38,6 +28,18 @@
           }
         </div>
 
+        <div cclass="mb-3">
+          <label class="form-label">Provider Logo </label>
+          <input
+            ngModel
+            name="providerImage"
+            class="form-control"
+            placeholder="Image"
+            type="file"
+            (change)="onFileChanged($event)"
+          />
+        </div>
+
         <div class="mb-3">
           <label class="form-label">Address</label>
           <input
@@ -53,17 +55,10 @@
           }
         </div>
 
-        <button
-          type="submit"
-          class="btn btn-primary w-100"
-          [disabled]="providerForm.invalid"
-        >
+        <button type="submit" class="btn btn-primary w-100" [disabled]="providerForm.invalid">
           Add Provider
         </button>
-
       </form>
     </div>
-
   </div>
-
 </div>

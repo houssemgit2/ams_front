@@ -3,6 +3,7 @@
     <thead class="table-dark">
       <tr>
         <th>#</th>
+        <th>Logo</th>
         <th>Nom</th>
         <th>Email</th>
         <th>Adresse</th>
@@ -14,6 +15,7 @@
       @for (provider of (listProviders | async) ?? []; track provider.id) {
         <tr>
           <td>{{ provider.id }}</td>
+          <td><img src="{{ urlUpload }}/{{ provider.logo }}" style="width: 3rem" /></td>
           <td>{{ provider.name }}</td>
           <td>{{ provider.email }}</td>
           <td>{{ provider.address }}</td>

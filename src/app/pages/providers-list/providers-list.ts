@@ -4,6 +4,7 @@ import { ProviderService } from '../../services/providerService';
 import { CommonModule } from '@angular/common';
 import { Provider } from '../../../models';
 import { ProviderModal } from '../../components/provider-modal/provider-modal';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   standalone: true,
@@ -15,6 +16,7 @@ import { ProviderModal } from '../../components/provider-modal/provider-modal';
 export class ProvidersList implements OnInit {
   listProviders = new BehaviorSubject<Provider[]>([]);
   selectedProvider = signal<Provider | null>(null);
+  urlUpload = environment.urlUploadImage;
 
   constructor(private providerService: ProviderService) {}
 
@@ -25,6 +27,8 @@ export class ProvidersList implements OnInit {
   loadProviders() {
     this.providerService.getProviders().subscribe({
       next: (data: Provider[]) => {
+        console.log('==>', data);
+
         this.listProviders.next(data);
       },
       error: (err) => console.error(err),
