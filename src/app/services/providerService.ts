@@ -24,14 +24,14 @@ export class ProviderService {
   }
 
   deleteProvider(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}${id}`);
   }
 
   getProviderById(id: number): Observable<Provider> {
-    return this.http.get<Provider>(`${this.apiUrl}/${id}`);
+    return this.http.get<Provider>(`${this.apiUrl}${id}`);
   }
 
   updateProvider(provider: Provider): Observable<Provider> {
-    return this.http.put<Provider>(`${this.apiUrl}/${provider.id}`, provider);
+    return this.http.put<Provider>(`${this.apiUrl}${provider.id}`, provider);
   }
 }
