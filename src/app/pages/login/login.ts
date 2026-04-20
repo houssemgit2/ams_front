@@ -39,12 +39,11 @@ export class Login implements OnInit {
   }*/
 
   checkLogin() {
-    this.router.navigate(['/home/providers']);
-    /*   this.loginservice.authenticate(this.username, this.password).subscribe(
+    this.loginservice.authenticate(this.username, this.password).subscribe(
       (data: any) => {
-        (console.log(data), this.router.navigate(['/listProviders']));
+        (console.log(data), this.router.navigate(['/home/providers']));
       },
       (error: any) => (this.invalidLogin = true),
-    );*/
+    );
   }
 }

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-light mb-2">
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      @if (!authenticationService.isUserLoggedIn()) {
+      @if (authenticationService.isUserLoggedIn()) {
         <li class="nav-item">
           <a class="nav-link" routerLink="/home/providers" routerLinkActive="active"> Providers </a>
         </li>

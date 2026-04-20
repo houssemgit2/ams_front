@@ -10,7 +10,7 @@ export class Authentication {
 
   authenticate(username: string, password: string) {
     return this.httpClient
-      .post<any>(`${environment.authUrl}signin`, {
+      .post<any>(`${environment.authUrl}/signin`, {
         username,
         password,
       })
